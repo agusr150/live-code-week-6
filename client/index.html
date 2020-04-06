@@ -53,29 +53,33 @@
     .tag:hover {
       color: #0069d9;
     }
+
+    .container {
+      display: none
+    }
   </style>
 </head>
 
 <body class="background">
 
   <!-- Login -->
-  <div class="container my-3">
+  <div class="container my-3" id="login">
     <div class="row">
       <div class="col-12 p-0 text-center">
-        <img src="/assets/security.svg" alt="" style="height:40%;" />
-        <h5 class="font-weight-light mb-3">You shall not pass, please verify your identity</h5>
+        
+        <!-- <h5 class="font-weight-light mb-3">You shall not pass, please verify your identity</h5> -->
         <div class="row">
           <div class="col-md-6 mx-auto">
-            <form>
+            <form id="submitlogin">
               <div class="form-group">
                 <label for="exampleInputEmail1" class="text-left">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp"
                   placeholder="Enter email" />
               </div>
 
               <div class="form-group">
                 <label for="exampleInputPassword">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword" aria-describedby="emailHelp"
+                <input type="password" class="form-control" id="password-login" aria-describedby="emailHelp"
                   placeholder="Enter password" />
               </div>
 
@@ -87,17 +91,68 @@
     </div>
   </div>
 
-  <!-- Full App -->
-  <div class="container my-3">
+
+  <!-- Full App-->
+  <div class="container my-3" id="appage">
+    INI APP
     <nav class="navbar navbar-light bg-light">
       <button class="btn btn-primary ml-auto">
         Logout
       </button>
     </nav>
-    <div class="row">
+
+    <!-- Add New Food -->
+      <div class="col-md-10" id='add'>
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="font-weight-light mb-3">Add New Food</h5>
+            <form id='submitadd'>
+              <div class="row">
+                <div class="col-md-12">
+                  <input type="text" id="title-add"  class="form-control my-2" placeholder="Food name">
+                  <input type="price" id="price-add" class="form-control my-2" placeholder="Price" min="0">
+                  <div class="form-group my-2">
+                    <textarea class="form-control" id="ingredients-add" rows="3" placeholder="Ingredients"></textarea>
+                  </div>
+                  <label for="tag">Choose food tag:</label>
+                  <select class="form-control" id="tag-add">
+                    <option value="ayam">ayam</option>
+                    <option value="ikan">ikan</option>
+                    <option value="other">other</option>
+                  </select>
+                </div>
+                <div class="col-md-8 mx-auto mt-3"><button class="btn btn-primary btn-block"
+                    type="submit">Submit</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+    <!-- List Food -->
+      <div class="col-md-10" id="list">
+      </div>
+
+      
+
+
+  </div>
+
+
+  <!-- Full App-->
+  <!-- <div class="container my-3" id="appage">
+    <nav class="navbar navbar-light bg-light">
+      <button class="btn btn-primary ml-auto">
+        Logout
+      </button>
+    </nav>
+
+
+    <div class="row"> -->
 
       <!-- Add New Food -->
-      <div class="col-md-10">
+      <!-- <div class="col-md-10" id='add'>
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="font-weight-light mb-3">Add New Food</h5>
@@ -123,15 +178,17 @@
           </div>
         </div>
       </div>
+    
+    </div>  -->
 
-      <div class="pb-0 col-12">
+      <!-- <div class="pb-0 col-12">
         <div class="card-body pb-0">
           <h3 class="font-weight-light">My Foods</h3>
         </div>
-      </div>
+      </div> -->
 
       <!-- List Food -->
-      <div class="col-md-10">
+      <!-- <div class="col-md-10" id="list">
         <div class="card">
           <div class="card-body pb-0">
             <div class="d-flex justify-content-between mb-0">
@@ -195,51 +252,23 @@
 
           </div>
         </div>
-        <div class="card">
-          <div class="card-body pb-0">
-            <div class="d-flex justify-content-between mb-0">
-              <div class="col-9">
-                <h5 class="font-weight-bold">Ikan Gurame Bakar </h5>
-                <p>Rp.30000</p>
-              </div>
-              <div class="col-3 d-flex align-items-baseline">
-                <i class="fas fa-tag text-grey mr-2"></i>
-                <p class="text-grey">ikan</p>
-                <button class="fas fa-trash text-danger ml-auto cursor-pointer"></button>
-              </div>
-            </div>
-            <div class="card-body border-bottom">
-              1 kg ikan gurame, Jeruk nipis, Kecap manis pedas, 7 cabe merah, 7 bawang merah, 3 bawang putih, 3 kemiri,
-              1 sdt ketumar, Jahe, Kunyit, 3 sdt gula, 3 sdt garam
-            </div>
-
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body pb-0">
-            <div class="d-flex justify-content-between mb-0">
-              <div class="col-9">
-                <h5 class="font-weight-bold">Batagor </h5>
-                <p>Rp.30000</p>
-              </div>
-              <div class="col-3 d-flex align-items-baseline">
-                <i class="fas fa-tag text-grey mr-2"></i>
-                <p class="text-grey">other</p>
-                <button class="fas fa-trash text-danger ml-auto cursor-pointer"></button>
-              </div>
-            </div>
-            <div class="card-body border-bottom">
-              3 kotak ukuran kecil tahu kuning, 5 sdm tepung terigu, 1/2 sdm mentega (supaya kriuk2), 2 buah bawang
-              putih, Garam (secukupnya), Merica (secukupnya), Air putih matang (secukupnya), 2 sdm saus cabe (saya pake
-              indofo**), 1/2 siung bawang putih, 2 cabe rawit, Kecap (secukupnya), Air matang (secukupnya)
-            </div>
-
-          </div>
-        </div>
+        
+        
       </div>
     </div>
-  </div>
+  </div> -->
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src='main.js'></script>
+
+  <script>
+
+   
+
+  </script>
+  
 
 </body>
+
 
 </html>
